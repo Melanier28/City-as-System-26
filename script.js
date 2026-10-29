@@ -25,7 +25,7 @@ const waitingCount = document.getElementById("waiting-count");
 
 const stationData = {
     morning: {
-        time: "9 AM",
+        time: "10 AM",
         title: "Morning Rush",
         commuters: 149,
         rushing: 57,
@@ -53,7 +53,7 @@ const stationData = {
     },
 
     evening: {
-        time: "6 PM",
+        time: "7 PM",
         title: "Evening Rush",
         commuters: 194,
         rushing: 75,
