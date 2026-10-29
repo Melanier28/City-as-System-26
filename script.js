@@ -85,7 +85,7 @@ const clothingColors = [
 
 // Create the commuters
 
-function createPeople(numberOfPeople) {
+function createPeople(numberOfPeople, walkingProbability) {
     peopleContainer.innerHTML = "";
 
     for (let i = 0; i < numberOfPeople; i++) {
@@ -95,7 +95,7 @@ function createPeople(numberOfPeople) {
 
         // Randomly classify each commuter
 
-        const isWalking = Math.random() < 0.6;
+        const isWalking = Math.random() < walkingProbability;
 
         if (isWalking) {
             person.classList.add("walking");
@@ -189,7 +189,7 @@ function updateStation(time) {
 
     // Show more or fewer commuters
 
-    createPeople(data.peopleShown);
+    createPeople(data.peopleShown, data.walkingProbability);
 }
 
 // Make each time button interactive
