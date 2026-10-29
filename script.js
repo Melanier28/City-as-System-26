@@ -326,7 +326,7 @@ tapButton.addEventListener("click", function() {
         readerMessage.textContent = "INSUFFICIENT FUNDS";
 
         readerFeedback.textContent =
-            "This card has expired. Choose another card and try again.";
+            "This card has insufficient funds. Choose another card and try again.";
 
         continueButton.hidden = true;
         tapButton.disabled = true;
