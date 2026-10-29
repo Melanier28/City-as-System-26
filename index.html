@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rhythm of Union Square</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- OMNY entry screen -->
+    <section class="entry-screen" id="entry-screen">
+
+        <div class="entry-content">
+            <p class="entry-label">14 ST — UNION SQ</p>
+
+            <h1>Before you enter...</h1>
+            <p class="entry-instructions">
+                Choose a card and tap the reader to enter the station.
+            </p>
+
+            <!-- Choose a virtual OMNY card -->
+            <div class="card-choices">
+
+                <button class="payment-card" data-card="0" aria-pressed="false" aria-label="Select card 1">
+                    <span class="omny-logo">OMNY</span>
+                    <span class="card-number">CARD 01</span>
+                    <span class="card-stripes"></span>
+                </button>
+
+                <button class="payment-card" data-card="1" aria-pressed="false" aria-label="Select card 2">
+                    <span class="omny-logo">OMNY</span>
+                    <span class="card-number">CARD 02</span>
+                    <span class="card-stripes"></span>
+                </button>
+
+                <button class="payment-card" data-card="2" aria-pressed="false" aria-label="Select card 3">
+                    <span class="omny-logo">OMNY</span>
+                    <span class="card-number">CARD 03</span>
+                    <span class="card-stripes"></span>
+                </button>
+
+                <button class="payment-card" data-card="3" aria-pressed="false" aria-label="Select card 4">
+                    <span class="omny-logo">OMNY</span>
+                    <span class="card-number">CARD 04</span>
+                    <span class="card-stripes"></span>
+                </button>
+
+            </div>
+
+            <!-- OMNY reader -->
+            <div class="omny-reader">
+
+                <div class="reader-screen" id="reader-screen">
+
+                    <!-- Four glowing corners -->
+                    <div class="reader-corners">
+                        <span class="corner top-left"></span>
+                        <span class="corner top-right"></span>
+                        <span class="corner bottom-left"></span>
+                        <span class="corner bottom-right"></span>
+                    </div>
+
+                    <p class="reader-logo">OMNY</p>
+
+                    <div class="reader-symbol">)))</div>
+
+                    <p class="tap-here">TAP HERE</p>
+
+                    <p class="reader-message" id="reader-message">
+                        READY TO TAP
+                    </p>
+
+                </div>
+
+                <button id="tap-button" disabled>
+                    TAP CARD
+                </button>
+
+            </div>
+
+            <p class="reader-feedback" id="reader-feedback" aria-live="polite">
+                Select a card to begin.
+            </p>
+
+            <button id="continue-button" hidden>
+                Continue to station →
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Main website (hidden until successful tap) -->
+    <main id="station-site" hidden>
+
+        <header>
+            <div>
+                <p class="eyebrow">SITE OBSERVATION / NYC SUBWAY</p>
+                <h1>The Rhythm of Union Square</h1>
+                <p class="subtitle">
+                    One station. Three different rhythms.
+                </p>
+            </div>
+
+            <div class="train-badge">4</div>
+        </header>
+
+        <!-- Introduction -->
+        <section class="intro">
+            <p>
+                Explore how time changes the movement and atmosphere
+                of the Union Square 4 train platform.
+            </p>
+        </section>
+
+        <!-- Time selector -->
+        <section class="time-section">
+            <h2>Choose a time of day</h2>
+
+            <div class="time-buttons">
+
+                <button class="time-button active" data-time="morning">
+                    9 AM
+                    <span>Morning rush</span>
+                </button>
+
+                <button class="time-button" data-time="afternoon">
+                    3 PM
+                    <span>Afternoon lull</span>
+                </button>
+
+                <button class="time-button" data-time="evening">
+                    6 PM
+                    <span>Evening rush</span>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- Subway platform -->
+        <section class="station-section">
+
+            <div class="station-heading">
+                <div>
+                    <p class="eyebrow">LIVE PLATFORM VIEW</p>
+                    <h2 id="station-time">9 AM — Morning Rush</h2>
+                </div>
+
+                <span class="status">
+                    <span class="status-dot"></span>
+                    SIMULATED
+                </span>
+            </div>
+
+            <div class="platform-scene" id="platform-scene">
+
+                <!-- Security camera button -->
+                <button class="camera-button" id="camera-button" aria-label="Turn security camera on"
+                    aria-pressed="false">
+                    👁
+                </button>
+
+                <div class="camera-status" id="camera-status">
+                    ● CAMERA OFF
+                </div>
+
+                <div class="ceiling"></div>
+
+                <div class="station-sign">
+                    <span>14 ST — UNION SQ</span>
+                    <span class="sign-number">4</span>
+                </div>
+
+                <div class="columns">
+                    <div class="column"></div>
+                    <div class="column"></div>
+                    <div class="column"></div>
+                    <div class="column"></div>
+                </div>
+
+                <div class="platform-label">
+                    DOWNTOWN &amp; BROOKLYN
+                </div>
+
+                <!-- JavaScript adds commuters here -->
+                <div class="people" id="people"></div>
+
+                <div class="platform-edge"></div>
+
+                <div class="track">
+                    <div class="track-line"></div>
+                    <div class="track-line"></div>
+                </div>
+
+                <div class="scene-caption" id="scene-caption">
+                    Commuters heading to work and school.
+                </div>
+
+                <!-- Camera tracking information -->
+                <div class="camera-info" id="camera-info">
+                    <h3>MOVEMENT TRACKING</h3>
+
+                    <p>
+                        PEOPLE TRACKED:
+                        <span id="tracked-count">0</span>
+                    </p>
+
+                    <p>
+                        WALKING:
+                        <span id="walking-count">0</span>
+                    </p>
+
+                    <p>
+                        WAITING:
+                        <span id="waiting-count">0</span>
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Statistics -->
+        <section class="stats-section">
+
+            <div class="stat-card">
+                <p>COMMUTERS / 5 MIN</p>
+                <h2 id="commuter-count">149</h2>
+                <span>Passing a fixed point</span>
+            </div>
+
+            <div class="stat-card">
+                <p>PEOPLE RUSHING / 5 MIN</p>
+                <h2 id="rushing-count">57</h2>
+                <span>Moving unusually quickly</span>
+            </div>
+
+            <div class="stat-card">
+                <p>CROWD LEVEL</p>
+                <h2 id="crowd-level">High</h2>
+                <span>Estimated from sample data</span>
+            </div>
+
+        </section>
+
+        <!-- Observation -->
+        <section class="observation">
+            <p class="eyebrow">OBSERVATION</p>
+
+            <h2 id="observation-title">The morning rush</h2>
+
+            <p id="observation-text">
+                Commuters move through the platform as they travel to
+                work and school. People navigate around one another
+                without constant direction from station staff.
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>
+                THE RHYTHM OF UNION SQUARE
+                <span>Research concept · Simulated data</span>
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
