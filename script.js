@@ -113,7 +113,7 @@ function createPeople(numberOfPeople, walkingProbability) {
 
         const movementArrow = document.createElement("span");
         movementArrow.classList.add("movement-arrow");
-        movementArrow.textContent = "↑";
+        movementArrow.textContent = "";
         person.appendChild(movementArrow);
 
         // Spread people across the platform
