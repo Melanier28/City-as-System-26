@@ -323,7 +323,7 @@ tapButton.addEventListener("click", function() {
         // Expired card
 
         readerScreen.className = "reader-screen failure";
-        readerMessage.textContent = "CARD EXPIRED";
+        readerMessage.textContent = "INSUFFICIENT FUNDS";
 
         readerFeedback.textContent =
             "This card has expired. Choose another card and try again.";
